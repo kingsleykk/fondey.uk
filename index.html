@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <canvas id="backgroundCanvas"></canvas>
+</head>
+<body>
+
+    <section id="top-header">
+        <h1>Hi, I'm Kingsley</h1>
+        <p>Web Developer | Gamer | Dreamer</p>
+    </section>
+
+     <div id="fade-overlay"></div>
+
+<!--<section id="hero">
+        <h2>Welcome</h2>
+        <p>Building cool things one line of code at a time.</p>
+    </section>
+-->
+
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="content">
+            <h1>About Me</h1>
+            <p>Hi! I'm Kingsley, a passionate software engineer with experience in full-stack development, AI, and more. I'm always looking to learn and grow my skills!</p>
+        </div>
+    </section>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="content">
+            <h1>Skills</h1>
+            <ul>
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>MySQL</li>
+                <li>Python</li>
+                <li>Gsap</li>
+                <li>AI/ML</li>
+            </ul>
+        </div>
+    </section>
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="content">
+        <h1>My Projects</h1>
+       <div class="project-cards">
+                <div class="card">
+                    <h2>Project 1</h2>
+                    <p>TBA</p>
+                <!--    <a href="#">View Project</a> -->
+                </div>
+                <div class="card">
+                    <h2>Project 2</h2>
+                    <p>TBA</p>
+                <!--    <a href="#">View Project</a> -->
+                </div>
+                <div class="card">
+                    <h2>Project 3</h2>
+                    <p>TBA</p>
+                <!--    <a href="#">View Project</a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="social-links">
+  <div class="content">
+    <h1>Find Me Online</h1>
+    <div class="link-cards">
+      <div class="card">
+        <h2>GitHub</h2>
+        <p><a href="https://github.com/kingsleykk" target="_blank" rel="noopener noreferrer">Check out my repos</a></p>
+      </div>
+      <div class="card">
+<!--        <h2>LinkedIn</h2>
+        <p><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">Connect with me</a></p>
+      </div>
+      <div class="card">
+        <h2>Twitter</h2>
+        <p><a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">Follow me</a></p>
+      </div> -->
+    </div>
+  </div>
+</section>
+
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="content">
+            <h1>Contact Me</h1>
+            <form action="mailto:kingsleykong05@gmail.com" method="POST" enctype="text/plain">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+    </footer>
+
+    <!-- Particle Animation Canvas -->
+    <script src="js/gsap.min.js"></script>
+    <script>
+        let gradient
+        let particles = [];
+        let mistParticles = [];
+        const particleCount = 100;
+        const connectDistance = 120;
+        class Particle {
+            constructor() {
+                this.reset();
+            }
+        reset() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height; // Make sure it's within the new canvas size
+            this.radius = Math.random() * 2 + 1;
+            this.speedY = Math.random() * 0.5 + 0.2;
+            this.vx = 0;
+            this.vy = this.speedY;
+        }
+        update() {
+            let dx = this.x - mouse.x;
+            let dy = this.y - mouse.y;
+            let dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < avoidRadius) {
+            const angle = Math.atan2(dy, dx);
+            const force = (avoidRadius - dist) / avoidRadius;
+            this.vx += Math.cos(angle) * force * 2;
+            this.vy += Math.sin(angle) * force * 2;
+            }
+            this.vx *= 0.95;
+            this.vy = this.speedY + (this.vy - this.speedY) * 0.95;
+            this.x += this.vx;
+            this.y += this.vy;
+            if (this.y > canvas.height + this.radius) {
+            this.reset();
+            this.y = 0;
+            }
+            if (this.x < 0) this.x = canvas.width;
+            if (this.x > canvas.width) this.x = 0;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+            ctx.fillStyle = '#444';
+            ctx.shadowColor = '#550088';
+            ctx.shadowBlur = 10;
+            ctx.fill();
+        }
+        }
+        // Mist particle class
+        class MistParticle {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.size = Math.random() * 4 + 2;
+            this.speedX = (Math.random() - 0.5) * 0.2;
+            this.speedY = (Math.random() - 0.5) * 0.2;
+            this.opacity = Math.random() * 0.2 + 0.1;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            // Wrap the mist particles
+            if (this.x < 0) this.x = canvas.width;
+            if (this.x > canvas.width) this.x = 0;
+            if (this.y < 0) this.y = canvas.height;
+            if (this.y > canvas.height) this.y = 0;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;  // Light mist color
+            ctx.fill();
+        }
+        }
+
+        function initializeParticles() {
+            particles = [];
+            mistParticles = [];
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        for (let i = 0; i < 50; i++) {  // Less mist particles for subtlety
+            mistParticles.push(new MistParticle());
+        }
+        }
+        function initializeGradient() {
+            gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#000000');
+            gradient.addColorStop(1, '#1a1a1a');
+        }
+        function setupCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Update gradient for new canvas size
+            gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#000000');
+            gradient.addColorStop(1, '#1a1a1a');
+            initializeParticles();
+    }
+
+
+        // Initial setup
+        const canvas = document.getElementById('backgroundCanvas');
+        const ctx = canvas.getContext('2d');
+        setupCanvas();
+        // Function to resize the canvas to fit the full screen
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            // Recalculate gradient if canvas is resized
+            gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#000000');
+            gradient.addColorStop(1, '#1a1a1a');
+        }
+        // Resize canvas when the window is resized
+        window.addEventListener('resize', resizeCanvas);
+        // Initial canvas setup
+        resizeCanvas();
+        
+
+        let mouse = { x: -9999, y: -9999 };
+        const avoidRadius = 100;
+        // Particle class
+        
+
+        function connectParticles() {
+        for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+            const dx = particles[i].x - particles[j].x;
+            const dy = particles[i].y - particles[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance < connectDistance) {
+                ctx.strokeStyle = `rgba(50, 50, 50, ${1 - distance / connectDistance})`;
+                ctx.lineWidth = 1;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.stroke();
+            }
+            }
+        }
+        }
+        function animate() {
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Update and draw regular particles
+        for (let p of particles) {
+            p.update();
+            p.draw();
+        }
+        // Draw mist particles
+        for (let p of mistParticles) {
+            p.update();
+            p.draw();
+        }
+        connectParticles();
+        requestAnimationFrame(animate);
+        }
+        // Initial particle setup
+        initializeParticles();
+        animate();
+        // Resize handling
+        window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+        gradient.addColorStop(0, '#000000');
+        gradient.addColorStop(1, '#1a1a1a');
+        // Reinitialize the particles to fit the new canvas size
+        initializeParticles();
+        });
+        // Mouse tracking
+        window.addEventListener('mousemove', (e) => {
+        mouse.x = e.clientX;
+        mouse.y = e.clientY;
+        });
+        window.addEventListener('mouseleave', () => {
+        mouse.x = -9999;
+        mouse.y = -9999;
+        });
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+        // Scroll to top button
+        const scrollToTopBtn = document.createElement('button');
+        scrollToTopBtn.innerText = '↑';
+        scrollToTopBtn.id = 'scrollToTopBtn';
+        document.body.appendChild(scrollToTopBtn);
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.style.display = 'block';
+            } else {
+                scrollToTopBtn.style.display = 'none';
+            }
+        });
+        window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+        document.body.classList.add('scrolled');
+    } else {
+        document.body.classList.remove('scrolled');
+    }
+});
+</script>
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    const sections = document.querySelectorAll("section");
+
+    sections.forEach(section => {
+        gsap.fromTo(section,
+            { opacity: 0, y: 50 },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                ease: "power2.out",
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play reverse play reverse",
+                    scrub: false,
+                    markers: false
+                }
+            }
+        );
+    });
+
+
+    gsap.from(".contact-link", {
+        scrollTrigger: ".contact-link",
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        ease: "power2.out"
+        });
+</script>
+
+
+</body>
+</html>
