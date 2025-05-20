@@ -132,48 +132,30 @@ ul li:hover {
     color: white;
 }
 
-/* Center the content inside */
-#projects .content {
-    max-width: 1200px;
-    margin: 0 auto;
-    text-align: center;
-}
 
-/* Grid/Flex container for cards */
+
 .project-cards {
-    display: flex;
-    justify-content: center;
-    align-items: center; 
-    gap: 30px;
-    flex-wrap: wrap;
-    margin-top: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
 }
 
-/* Individual card style */
 .card {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: white;
-    border-radius: 12px;
-    padding: 20px;
-    width: 280px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+  background-color: #1e1e1e;
+  color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  width: 250px;
+  text-align: center;
+  transition: transform 0.3s ease;
 }
 
 .card:hover {
-    transform: translateY(-8px);
+  transform: translateY(-5px);
 }
-
-.card h2 {
-    font-size: 1.3rem;
-    margin-bottom: 10px;
-}
-
-.card p {
-    font-size: 0.95rem;
-    color: #ccc;
-}
-
 
 /* Contact Form */
 form {
