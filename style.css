@@ -126,19 +126,11 @@ ul li:hover {
     background-color: #333;
 }
 
-/* Section Styling */
-#projects {
-    padding: 60px 20px;
-    color: white;
-}
-
-
-
 .project-cards {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column; 
   gap: 20px;
-  justify-content: center;
+  align-items: center; 
   margin-top: 20px;
 }
 
@@ -148,7 +140,7 @@ ul li:hover {
   padding: 20px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  width: 250px;
+  width: 550px;
   text-align: center;
   transition: transform 0.3s ease;
 }
