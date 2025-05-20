@@ -143,6 +143,7 @@ ul li:hover {
 .project-cards {
     display: flex;
     justify-content: center;
+    align-items: center; 
     gap: 30px;
     flex-wrap: wrap;
     margin-top: 40px;
