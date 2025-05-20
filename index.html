@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <canvas id="backgroundCanvas"></canvas>
 </head>
 <body>
-    <canvas id="backgroundCanvas"></canvas>
+
     <section id="top-header">
         <h1>Hi, I'm Kingsley</h1>
         <p>Web Developer | Gamer | Dreamer</p>
@@ -44,23 +45,26 @@
     </section>
     <!-- Projects Section -->
     <section id="projects">
-      <div class="content">
+        <div class="content">
         <h1>My Projects</h1>
-        <div class="project-cards">
-          <div class="card">
-            <h2>Project 1</h2>
-            <p>TBA</p>
-          </div>
-          <div class="card">
-            <h2>Project 2</h2>
-            <p>TBA</p>
-          </div>
-          <div class="card">
-            <h2>Project 3</h2>
-            <p>TBA</p>
-          </div>
+       <div class="project-cards">
+                <div class="card">
+                    <h2>Project 1</h2>
+                    <p>TBA</p>
+                <!--    <a href="#">View Project</a> -->
+                </div>
+                <div class="card">
+                    <h2>Project 2</h2>
+                    <p>TBA</p>
+                <!--    <a href="#">View Project</a> -->
+                </div>
+                <div class="card">
+                    <h2>Project 3</h2>
+                    <p>TBA</p>
+                <!--    <a href="#">View Project</a> -->
+                </div>
+            </div>
         </div>
-      </div>
     </section>
 
 
@@ -68,17 +72,18 @@
   <div class="content">
     <h1>Find Me Online</h1>
     <div class="link-cards">
+        <a href="https://github.com/kingsleykk" target="_blank" rel="noopener noreferrer" class="card-link" style="color: inherit; text-decoration: none;">
       <div class="card">
         <h2>GitHub</h2>
-        <p><a href="https://github.com/kingsleykk" target="_blank" rel="noopener noreferrer">Check out my repos</a></p>
+        <p>Check out my repos</a></p>
       </div>
-      <div class="card">
-<!--        <h2>LinkedIn</h2>
-        <p><a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer">Connect with me</a></p>
+<!--      <div class="card">
+        <h2>LinkedIn</h2>
+        <p><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer">Connect with me</a></p>
       </div>
       <div class="card">
         <h2>Twitter</h2>
-        <p><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Follow me</a></p>
+        <p><a href="https://twitter.com/yourhandle" target="_blank" rel="noopener noreferrer">Follow me</a></p>
       </div> -->
     </div>
   </div>
@@ -89,7 +94,7 @@
     <section id="contact">
         <div class="content">
             <h1>Contact Me</h1>
-            <form action="https://formspree.io/f/mldbvgke" method="POST">
+            <form action="mailto:kingsleykong05@gmail.com" method="POST" enctype="text/plain">
                 <label for="name">Your Name</label>
                 <input type="text" id="name" name="name" required>
                 <label for="email">Your Email</label>
@@ -102,7 +107,7 @@
     </section>
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Kingsley. All rights reserved.</p>
+        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
     </footer>
 
     <!-- Particle Animation Canvas -->
@@ -348,15 +353,6 @@
             }
         );
     });
-
-
-    gsap.from(".contact-link", {
-        scrollTrigger: ".contact-link",
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power2.out"
-        });
 </script>
 
 
