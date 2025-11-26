@@ -30,7 +30,7 @@ export default function Projects() {
       title: "Portfolio V1",
       desc: "High-performance personal site built with Next.js and custom canvas animations.",
       tech: ["Next.js", "Tailwind", "Canvas API"],
-      link: "https://github.com/kingsleykk/fondey-portfolio", 
+      link: "https://github.com/kingsleykk/fondey.uk", 
       isVideo: false,
       featured: false
     }
