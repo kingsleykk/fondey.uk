@@ -14,7 +14,7 @@ export default function Projects() {
       title: "Kompleks Asia City Platform",
       desc: "Engineered a digital ecosystem for a major shopping mall. Features include public-facing interactive maps for visitors and a custom Content Management System (CMS) for staff to broadcast facility news, renovations, and administrative updates to tenants and the public in real-time.",
       tech: ["React", "Nhost", "Interactive Maps", "Custom CMS"],
-      link: "https://asiacity.fondey.uk", 
+      link: "https://kompleksasiacity.com", 
       isVideo: false,
       featured: true
     },
