@@ -159,7 +159,7 @@ const icons = {
               transformation for a property firm in Malaysia.
             </p>
             <p>
-              I am currently preparing to research Computer Science at <strong className="text-[#64ffda]">RMIT</strong>, 
+              I am currently studying Software Engineer at <strong className="text-[#64ffda]">RMIT</strong>, 
               where I plan to further specialize in scalable architecture.
             </p>
           </div>
