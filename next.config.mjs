@@ -7,7 +7,7 @@ const nextConfig = {
       // Short link printed on the NFC business card. Temporary so it can be repointed later.
       { source: '/c', destination: '/', permanent: false },
       // Resume link: the shared Google Drive copy of the CV PDF.
-      { source: '/cv', destination: 'https://drive.google.com/file/d/1qk5jqoVvWuRK8Zamp_mlL1A7ZGsfbV6f/view?usp=sharing', permanent: false },
+      { source: '/cv', destination: 'https://drive.google.com/file/d/1379njUecVnA4bEJm4pPTmDw6W_Rz9la8/view?usp=sharing', permanent: false },
     ];
   },
 };
