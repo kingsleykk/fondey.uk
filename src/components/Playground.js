@@ -2,14 +2,19 @@ import PathfinderGame from '@/components/PathfinderGame';
 
 export default function Playground() {
   return (
-    <section id="play" className="py-24 px-6 md:px-20">
-      <h2 className="text-3xl font-mono text-white mb-4 flex items-center">
-        <span className="text-[#64ffda] mr-2">03.</span> Beat the Pathfinder
-        <span className="h-px bg-gray-700 w-64 ml-4 hidden md:block"></span>
-      </h2>
-      <p className="max-w-2xl text-[#8892b0] mb-10 leading-relaxed">
-        Can you find the fastest route through a mall before the routing algorithm I&apos;m building for one does?
-      </p>
+    <section id="play" className="section flex flex-col gap-7">
+      <div className="flex flex-col gap-4">
+        <div>
+          <p className="prompt m-0">
+            <span>./beat-the-pathfinder</span>
+          </p>
+          <h2 className="h2">Beat the pathfinder</h2>
+        </div>
+        <p className="prose m-0 max-w-[36em]">
+          Find the fastest way through a mall, then watch the routing algorithm I&apos;m building for a real one try to
+          beat you. Busy corridors are slower than they look.
+        </p>
+      </div>
       <PathfinderGame />
     </section>
   );

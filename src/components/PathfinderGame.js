@@ -10,15 +10,15 @@ import { useEffect, useMemo, useRef, useState } from 'react';
  */
 
 const C = {
-  bg: '#0a0a0a',
-  panel: 'rgba(20, 20, 30, 0.7)',
-  line: '#233042',
-  text: '#ccd6f6',
-  muted: '#8892b0',
+  bg: '#0c0e10',
+  panel: '#12161a',
+  line: '#1f252c',
+  text: '#e8eaec',
+  muted: '#8e959d',
   you: '#64ffda',
   algo: '#ff4d6d',
-  shop: '#141a24',
-  shopLine: '#1f2a3a',
+  shop: '#151a20',
+  shopLine: '#1f252c',
 };
 
 const METERS_PER_UNIT = 0.5;
@@ -223,8 +223,7 @@ export default function PathfinderGame() {
         border: `1px solid ${C.line}`,
         borderRadius: 12,
         padding: 'clamp(14px, 3vw, 24px)',
-        maxWidth: 760,
-        margin: '0 auto',
+        maxWidth: 820,
         display: 'flex',
         flexDirection: 'column',
         gap: 14,
@@ -232,7 +231,7 @@ export default function PathfinderGame() {
     >
       <header style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: 8, alignItems: 'baseline' }}>
         <div style={{ fontSize: 14, minWidth: 0 }}>
-          <span style={{ color: C.you }}>$</span> navigate --to{' '}
+          <span style={{ color: C.algo }}>$</span> navigate --to{' '}
           <span style={{ color: '#fff' }}>&quot;{NODES[goal].name.toLowerCase()}&quot;</span>
         </div>
         <div style={{ fontSize: 12, color: C.muted, fontVariantNumeric: 'tabular-nums' }}>
@@ -323,7 +322,7 @@ export default function PathfinderGame() {
                     x={n.x}
                     y={n.y + (n.y < 100 ? -12 : 18)}
                     textAnchor={n.x < 40 ? 'start' : n.x > 360 ? 'end' : 'middle'}
-                    fontSize="9"
+                    fontSize="11"
                     fill={isGoal ? C.algo : C.muted}
                     style={{ fontFamily: 'inherit', pointerEvents: 'none' }}
                   >

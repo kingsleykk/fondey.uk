@@ -1,20 +1,20 @@
 import './globals.css';
-import { Inter, JetBrains_Mono } from 'next/font/google';
+import { IBM_Plex_Mono, IBM_Plex_Sans, Martian_Mono } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
-const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
+const display = Martian_Mono({ subsets: ['latin'], weight: ['700'], variable: '--font-display' });
+const mono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-mono' });
+const sans = IBM_Plex_Sans({ subsets: ['latin'], weight: ['400', '500'], variable: '--font-sans' });
 
 export const metadata = {
-  title: 'Kingsley | Software Engineer',
-  description: 'Full-stack engineer and AI prototype developer.',
+  title: 'Kingsley Kong | Software Engineer',
+  description:
+    'Software engineer in Melbourne. I build websites that real businesses run on, and the home servers that keep them online.',
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable}`}>
-      <body className="antialiased text-[#ccd6f6] bg-[#0a0a0a]">
-        {children}
-      </body>
+    <html lang="en" className={`${display.variable} ${mono.variable} ${sans.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }
