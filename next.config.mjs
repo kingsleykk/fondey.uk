@@ -6,8 +6,8 @@ const nextConfig = {
     return [
       // Short link printed on the NFC business card. Temporary so it can be repointed later.
       { source: '/c', destination: '/', permanent: false },
-      // Resume link. TODO: swap for the shared Google Drive link to the CV PDF.
-      { source: '/cv', destination: 'https://www.linkedin.com/in/jia-cheng-kong-b61aa7363/', permanent: false },
+      // Resume link: the shared Google Drive copy of the CV PDF.
+      { source: '/cv', destination: 'https://drive.google.com/file/d/1qk5jqoVvWuRK8Zamp_mlL1A7ZGsfbV6f/view?usp=sharing', permanent: false },
     ];
   },
 };
