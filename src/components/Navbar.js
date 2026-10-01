@@ -17,8 +17,13 @@ export default function Navbar() {
           </a>
         </li>
         <li>
+          <a href="#play" className="hover:text-[#64ffda] transition-colors">
+            <span className="text-[#64ffda]">03.</span> Play
+          </a>
+        </li>
+        <li>
           <a href="#contact" className="hover:text-[#64ffda] transition-colors">
-            <span className="text-[#64ffda]">03.</span> Contact
+            <span className="text-[#64ffda]">04.</span> Contact
           </a>
         </li>
       </ul>

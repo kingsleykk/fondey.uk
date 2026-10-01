@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import About from '@/components/About'; 
 import Projects from '@/components/Projects';
+import Playground from '@/components/Playground';
 import Contact from '@/components/Contact'; 
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       <Hero />
       <About />
       <Projects />
+      <Playground />
       <Contact />
       
       <footer className="text-center py-6 text-[#8892b0] font-mono text-xs">
